@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    - if (typeof(title) == 'undefined')
+        title Express Starter Template
+    - else 
+        title= title
+    
+    // include default stylesheets and any view stylesheets
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    
+    // include default scripts and any view scripts
+    script(src='/javascripts/jquery-1.7.min.js')
+    block head
+  body
+    header
+      img(src="http://api.alebanzas.com.ar/azurelog?r=alebanzas", style="width: 300px;")
+    footer
+    block body
