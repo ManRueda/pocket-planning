@@ -1,0 +1,30 @@
+{
+  "name": "pocket-planning",
+  "description": "This is an small site for dev teams to perform packet planning with remote people",
+  "main": "./server.js",
+  "authors": [
+    "Manuel Rueda"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "azure",
+    "express",
+    "pocket",
+    "planning",
+    "node"
+  ],
+  "homepage": "https://github.com/ManRueda/pocket-planning",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
