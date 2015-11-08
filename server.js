@@ -6,7 +6,6 @@
 **/
 
 var express = require('express');
-var nconf = require('nconf');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var Recaptcha = require('recaptcha').Recaptcha;
@@ -15,16 +14,6 @@ var session = require('express-session');
 
 var app = module.exports = express();
 var http = require('http').Server(app);
-
-/**
-* CONFIGURATION
-* -------------------------------------------------------------------------------------------------
-* load configuration settings from ENV, then settings.json.  Contains keys for OAuth logins. See
-* settings.example.json.
-**/
-nconf.env().file({file: 'settings.json'});
-
-
 
 /**
 * CONFIGURATION
