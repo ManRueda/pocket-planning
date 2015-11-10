@@ -1,0 +1,29 @@
+extends ../layout.jade
+
+block head
+block body
+  div.container-fluid(ng-controller="planningController as vm")
+    div.row
+      div.col-md-10.col-md-offset-1
+        div.jumbotron
+          h2=planning.msg
+          div.row
+            div.col-md-10.col-md-offset-1
+              if isCreator
+                div.row.well
+                  div.col-md-10
+                    div.form-group
+                      input.form-control.floating-label(ng-model="vm.model.name", type="text", placeholder="Story")
+                  div.col-md-2
+                    a.btn.btn-primary(ng-click="vm.addStory(vm.model)")
+                      | Add
+              div(ng-repeat="story in vm.source", data-uuid="{{story.uuid}}").row.well.story
+                if isCreator
+                  a(ng-click="vm.delStory(story.uuid)").btn.btn-warning.btn-fab.btn-raised.mdi-action-delete.delete
+                h3
+                  |{{story.text}}
+block script
+  script.
+    window.app.constant('importedData', {uuid: '#{planning.uuid}', stories: !{JSON.stringify(planning.stories)}});
+  script(src="/js/planning.js")
+    

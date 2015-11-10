@@ -1,0 +1,34 @@
+extends ../layout.jade
+
+block head
+
+block body
+  div.container-fluid
+    div.row
+      div.col-md-8.col-md-offset-2
+        div.jumbotron
+          h1
+            |Create Planning
+          form(method="POST")
+            div.row
+              div.col-md-4.col-md-offset-2
+                div.radio.radio-success
+                  label
+                    input(type="radio", name="type", value="hours")
+                    | Hours
+              div.col-md-4
+                div.radio.radio-success
+                  label
+                    input(type="radio", name="type", value="sp")
+                    | Story Points
+                    <div class="form-group">
+            div.row
+              div.col-md-8.col-md-offset-2
+                div.form-group
+                  input.form-control.floating-label(id="name", name="name", type="text", placeholder="Name of the session")
+            div.row
+              div.col-md-4.col-md-offset-6
+                a.btn.btn-default(href="/")
+                  |Cancel
+                button.btn.btn-primary(type="submit")
+                  |Create

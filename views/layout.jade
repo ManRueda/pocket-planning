@@ -2,18 +2,43 @@ doctype html
 html
   head
     - if (typeof(title) == 'undefined')
-        title Express Starter Template
+        title Pocket Planning
     - else 
         title= title
-    
-    // include default stylesheets and any view stylesheets
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/components/bootstrap-material-design/dist/css/roboto.min.css')
+    link(rel='stylesheet', href='/components/bootstrap-material-design/dist/css/material-fullpalette.min.css')
+    link(rel='stylesheet', href='/components/bootstrap-material-design/dist/css/ripples.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    
-    // include default scripts and any view scripts
-    script(src='/components/jquery/dist/jquery.min.js')
     block head
-  body
+  body(session=sessionId, ng-app="pocketPlanning").container-fluid.main
     header
       img(src="http://api.alebanzas.com.ar/azurelog?r=alebanzas", style="width: 300px;")
-    footer
     block body
+    
+    script(src='/socket.io/socket.io.js')
+    script(src='/components/jquery/dist/jquery.min.js')
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/components/bootstrap-material-design/dist/js/material.min.js')
+    script(src='/components/bootstrap-material-design/dist/js/ripples.min.js')
+    script(src='/components/angular/angular.js')
+    script.
+      window.socket = io();
+      $(function(){
+        $.material.init();
+      });
+      function generateUUID() {
+          var d = new Date().getTime();
+          var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+              var r = (d + Math.random()*16)%16 | 0;
+              d = Math.floor(d/16);
+              return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+          });
+          return uuid;
+      };
+      window.app = angular.module('pocketPlanning', ['ng']);
+    script(src='/js/importedData.js')
+    block script

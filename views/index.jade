@@ -3,4 +3,14 @@ extends ./layout.jade
 block head
 
 block body
-  
+  div.container-fluid
+    div.row
+      div.col-md-8.col-md-offset-2
+        div.jumbotron
+          h1
+            |Pocket Planning
+          p
+            |This site provides an easy way to join a remote ream in a pocket planning session
+          p
+            a.btn.btn-primary.btn-lg(href="/planning/create")
+              |Create a session
